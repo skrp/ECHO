@@ -12,37 +12,31 @@ use Digest::SHA ();
 my $log = '/usr/home/geni/o/ENTROPY_GEN.log';
 open(my $Lfh, '>>', $log);
 
-my $home = '/root/';
-my $tpath = '/root/.tmp_krip';
-my $path = '/zroot/krip/';
+open(my $cfh, '<', '/krip/curves');
+my @curves = <$cfh>; 
+chomp @curves; close $cfh;
 
-my $curve = 'prime256v1';
+my $rand_tmp = ;
+my $tpath ="/krip/.$rand_tmp";
+my $path = '/krip/krip/';
 
 while (1)
 {
 	rotate($curve);
 # FORCE RESEED
 	`echo '' > /dev/random`; 
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-	rotate($curve);
-
+	my $i = 10;
+	while ($i > 0)
+		{ rotate(); }
 }
 
 
 sub rotate
 {
-#	my ($curve) = @_;
 	sleep 100;
-	`cd $home`;
+	my $curve = c_up();
 	unlink $tpath;
-	`openssl ecparam -name prime256v1 -genkey -out $tpath -param_enc explicit`; 
+	`openssl ecparam -name prime256v1 -genkey -out $tpath -param_enc explicit -rand /krip/entropy`; 
 	my $sha = file_digest($tpath);
 	my $new = $path.$sha;
 	move($tpath, $new);
@@ -50,7 +44,7 @@ sub rotate
 # FIX
 sub c_up
 {
-	my $curve = 'prime256v1';
+	my $curve = $curves[rand @curves];
 	return $curve;
 }
 sub file_digest {
