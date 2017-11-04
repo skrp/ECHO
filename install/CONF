@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+use strict; use warnings;
+use Exporter;
+package HB::;
+my @EXPORT = qw();
+#
+###########################
+# CONF - One Time Only
+
+conf();
+
+sub conf
+{
+  `cp /usb/conf/pf.conf /etc/pf.conf`;
+  `cp /usb/conf/ntpd.conf /usr/local/etc/ntpd.conf`;
+  `cp /usb/conf/rc.conf /etc/rc.conf`;
+  `cp /usb/conf/resolv.conf /etc/resolv.conf`;
+  `cp /usb/conf/sshd_config /etc/ssh/sshd_config`;
+  `cp /usb/conf/start_if.em0 /etc/start_if.`;
+  `cp /usb/conf/start_if.re0 /etc/start_if.`;
+  `cp /usb/conf/ttys /etc/ttys`;
+  `cp /usb/conf/KERN /usr/src/sys/amd64/conf/KERN`;
+  `cp /usb/conf/sysctl.conf /etc/sysctl.conf`;
+  `cp /usb/conf/jail.conf /etc/jail.conf`;
+  `cp /usb/conf/login.conf /etc/login.conf`;
+  `cp /usb/conf/wpa_supplicant.conf /etc/wpa_supplicant.conf`;
+  `cp /usb/conf/exports /etc/exports`;
+
+#`cp /usb/config/ /etc/`;
+}
+

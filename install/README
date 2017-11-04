@@ -1,2 +1,88 @@
-##############################
-# install - ECHO setup scripts
+###################################
+# HUBBUB - FreeBSD encrypted subnet
+# HUBBUB - Network Kernel Clones
+
+A DHCP attachable
+LAN WIFI subnet
+Point-to-Point Encrypted Tunnels
+
+# INSTALL PROCEEDURE ##############
+
+# {1.0} Boot install FreeBSD memstick
+# {1.1} zfs import usb
+# {1.2} cp /usb/distfiles/KERN /usr/ports/sys/amd64/conf/
+# {1.3} cd /usr/src/
+# {1.4} make buildkernel KERNCONF=KERN
+# {1.5} make installkernel KERNCONF=KERN
+# --- REBOOT ---
+# {2} perl USR
+# {3} perl CONF
+# {4} opiepasswd -fc
+# {5} opiekey -n 8 499 $set
+# {6} su lord
+# {7} opiepasswd -fc
+# {8} opiekey -n 8 499 $set
+# --- REBOOT ---
+
+# BENEFITS ####################
+CONFIG SHA VERIFICATION
+PORT CODE SHA/INSPECTION
+HIVE DISTRIBUTIVE NET COMPUTE
+NFS OBFUSTATED DATABANK
+HOMO SHELL ENVIORNMENT
+ICMP MORSE ALARM
+PSK OPIE AUTHENTICATION
+GROUP PUZZEL ESCALATION
+NET TABLE NAMESERVICE [net ban jail blacklist]
+FULL CAPABILITY NODES [if drives nfs server]
+NET GROUP CLASS
+MASTERKEY ACCESS
+
+# SERVICES ####################
+[ ] 8080
+[ ] MAIL
+[ ] DNS
+[ ] RX (voice-recording exchange)
+[ ] WCHAT
+[ ] radio_io
+[ ] satelite_io
+[ ] GROUP
+[X] Web
+[X] IRC
+[X] RAW
+[X] NTP
+[X] HIVE
+[X] NET_nfs
+[X] NET_ftp
+[X] FTP
+[X] SSH-PSK-OPIE
+[X] SCP
+[X] NFS Server
+[X] NFS Client
+[X] LAN(client)-DHCP
+[X] LAN(server)-DHCP
+[X] WIFI(client)-DHCP
+[X] WAP(server)-DHCP
+
+# FILE SYSTEM #########################
+/net
+/HIVE
+/keys
+/home
+/nfso
+/nfsr
+/www
+/printer
+/MK
+
+##################################
+# MASTERKEY - system creator relic
+
+FreeBSD amd64 KERNEL
+FreeBSD installworld
+Perl Code Repository
+Encrypted Key Pool
+
+# Encrypted Key Pool #############
+ECC encrypted host key
+ECC encrypted known_hosts bank

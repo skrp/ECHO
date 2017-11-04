@@ -1,0 +1,115 @@
+#!/usr/local/bin/perl
+use strict; use warnings;
+use Exporter;
+package HB::USR;
+my @EXPORT = qw(home, add_me, key_man, norm, seer, heir, lord);
+#
+##############################
+# USR - unix user group setup
+
+# {{ null }} nologin vpsrsh 
+# {{ low }} norm seer
+# {{ prime }} heir lord root
+
+my $ec_curve = 'c2tnb431r1';
+my $shell = '/usr/local/bin/bash';
+my $rsh = '/usr/local/bin/rbash';
+
+# TEST #######################
+pop_grp();
+norm('norm');
+seer('seer');
+heir('heir');
+lord('lord');
+
+heir('s_gardik', 'eng'); 
+
+sub pop_grp
+{
+# CREATE GROUPS
+  my @grps = ('norm', 'seer', 'heir', 'lord', \
+    'eng'); 
+  for (@grps)
+    { `pw groupadd $_`; }
+
+}
+sub home
+{
+  my ($usr, @a) = @_;
+  `mkdir /usr/home/$usr/`;
+  `chmod 550 /usr/home/$usr/`;
+  `chown $usr /usr/home/$usr/`;
+
+  `mkdir /usr/home/$usr/.ssh/`;
+  `chmod -R 500 /usr/home/$user/.ssh/`;
+  `chown $usr /usr/home/$usr/.ssh/`;
+
+  `mkdir /usr/home/$usr/o/`;
+  `chmod 700 /usr/home/$usr/o/`;
+  `chown $usr /usr/home/$usr/o/`;
+
+  `cp /usb/distfiles/.bash_profile /usr/home/$usr/.bash_profile`;
+  `chmod 500 /usr/home/$usr/.bash_profile`;
+  `chown $usr /usr/home/$usr/.bash_profile`;
+
+  for (@a)
+  	{ `pw groupmod $_ -m $usr`; }
+}
+sub add_me
+{
+  my ($usr, $grp) = @_;
+  `pw useradd -n $usr -g $grp -d /usr/home/$usr -s $shell`;
+}
+
+sub key_man
+{
+  my ($usr) = @_;
+  `openssl ecparam -name $ec_curve -genkey -out /usr/home/$usr/.ssh/id_rsa -param_enc explicit`;
+  `openssl ec -in /usr/home/$usr/.ssh/id_rsa -pubout -out /usr/home/$usr/.ssh/id_rsa.pub -param_enc explicit`;
+}
+sub norm
+{
+# norm #######################
+  my @a = @_;
+  my $usr = shift @a;
+  my $grp = 'norm';
+
+  add_me($usr, $grp);
+  home($usr, @a); 
+  key_man($usr);
+}
+sub seer
+{
+# seer  #######################
+  my ($usr) = @_;
+  my $grp = 'seer';
+
+  add_me($usr, $grp);
+  home($usr, @a); 
+  key_man($usr);
+}
+sub heir
+{
+# heir  #######################
+# OPIE (README)
+  my ($usr) = @_;
+  my $grp = 'heir';
+
+  add_me($usr, $grp);
+  home($usr, @a); 
+  key_man($usr);
+}
+sub lord
+{
+# lord #######################
+# OPIE (README)
+  my ($usr) = @_;
+  my $grp = 'heir';
+
+  add_me($usr, $grp);
+  home($usr, @a); 
+  key_man($usr);
+  `pw groupmod wheel -m $usr`;
+}
+# root #######################
+# OPIE (README)

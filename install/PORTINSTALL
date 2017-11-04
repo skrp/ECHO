@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+use strict; use warnings;
+use Exporter;
+package HB::PORTINSTALL;
+my @EXPORT = qw(portinstall);
+#
+##################################
+# POSTINSTALL - hubbub enviornment
+portinstall();
+
+sub portinstall
+{
+#  my @ports = ( 'sudo', 'perl5', 'vsftpd', 'openntpd', 'bash', 'vim', 'screen', 'opensmtpd', 'nmap', 'squid', 'unreal',\
+  my @ports = ( 'perl', 'vsftpd', 'openntpd', 'bash', 'vim', 'opensmtpd', 'nmap', 'squid', \
+    'p.useragent', 'p.file_find', 'p.digest_sha', 'p.parallel_forkmanager', 'p.file_libmagic', \
+    'p.list_utils', 'p.const_fast', 'p.archive_any', 'p.lwp_https');
+
+  for my $it (@ports)
+  {
+    `mkdir /usr/ports/$it`;
+    `tar -xC /usr/ports/ -f /usb/distfiles/$it.tar`;
+
+    `cd /usr/ports/$it && ./configure && make && make install`;
+  }
+}
