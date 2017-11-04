@@ -60,7 +60,7 @@ sub daemon {
    	die "FAIL daemon2 $!\n" if ((my $pid2 = fork()) < 0);
   	if ($pid2 != 0)
    		{ exit(0); }
-	chdir('/tmp');
+	chdir('/krip/');
    	umask 0;
    	my $fds = 3;
   	while ($fds < 1024)
