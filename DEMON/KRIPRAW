@@ -3,7 +3,7 @@ use strict; use warnings;
 use Digest::SHA;
 #
 ######################################
-# KRIPRAW - netwide entropy generation
+# lordkripraw - netwide entropy generation
 #
 # Over-Time : Diversified-Sources : Hand-Crafted
 # Confined Lord no shell daemon
