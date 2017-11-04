@@ -24,7 +24,7 @@ while (1)
 {
 	rotate();
 # FORCE RESEED
-  open(my $rfh, '>>', '/dev/random');
+  	open(my $rfh, '>>', '/dev/random');
 	close $rfh;
 	my $i = 10;
 	while ($i > 0)
@@ -34,13 +34,13 @@ while (1)
 sub rotate
 {
 	sleep 1000;
-  open(my $rfh, '<', '/dev/random');
-  read $rfh,$entropy,10000;
-  my $sha = file_digest($entropy);
-  my $new = $dump.$sha;
-  open(my $sfh, '>', $new);
-  print $sfh $entropy;
-  close $sfh;
+	open(my $rfh, '<', '/dev/random');
+  	read $rfh,$entropy,10000;
+  	my $sha = file_digest($entropy);
+  	my $new = $dump.$sha;
+  	open(my $sfh, '>', $new);
+  	print $sfh $entropy;
+  	close $sfh;
 }
 sub file_digest {
 	my ($filename) = @_;
