@@ -3,9 +3,10 @@ use strict; use warnings;
 # use FREEBSD::unix_or_you_a_bitch_ass_scrub_hackjob_button-smasher-hack-hacker;
 #
 # https://raw.githubusercontent.com/skrp/HIVE/master/DEMON
+#
 ########################################################
 #                HIVE OVER NFS                         #
-# DEMON          t_'(o_0)"'      daemon summons scroll #
+# normdemon      t_'(o_0)"'      daemon summons scroll #
 #                       ^[[acii demon flip'n u off]]   #
 ########################################################
 
