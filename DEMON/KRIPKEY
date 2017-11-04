@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 use strict; use warnings;
-use File::Copy;
-use Digest::SHA ();
+use File::Move 'move()';
+use Digest::SHA;
 #
 ######################################
 # KRIPKEY - netwide ec key generation
@@ -22,15 +22,14 @@ my $path = '/krip/krip/';
 
 while (1)
 {
-	rotate($curve);
+	rotate();
 # FORCE RESEED
 	`echo '' > /dev/random`; 
 	my $i = 10;
 	while ($i > 0)
-		{ rotate(); }
+		{ $i--; rotate(); }
 }
-
-
+# SUBS ############################################
 sub rotate
 {
 	sleep 100;
@@ -41,7 +40,6 @@ sub rotate
 	my $new = $path.$sha;
 	move($tpath, $new);
 }
-# FIX
 sub c_up
 {
 	my $curve = $curves[rand @curves];
