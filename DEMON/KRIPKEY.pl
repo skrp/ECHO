@@ -3,8 +3,8 @@ use strict; use warnings;
 use File::Copy;
 use Digest::SHA ();
 #
-###################
-# ENTROPY GENERATOR 
+######################################
+# KRIPKEY - netwide ec key generation
 
 my $log = '/usr/home/geni/o/ENTROPY_GEN.log';
 open(my $Lfh, '>>', $log);
