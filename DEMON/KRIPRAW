@@ -16,7 +16,7 @@ die "STILLBORN" if ((my $birth = daemon()) != 0);
 my $entropy;
 
 my $tpath ="/krip/.$$_ent";
-my $dump = '/krip/ent/`;
+my $dump = '/krip/ent/';
 
 my $log = '/krip/.$$_log';
 open(my $Lfh, '>>', $log);
