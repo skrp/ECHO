@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+use strict; use warnings;
+use List::Util 'any';
+###########################
+# FIND - grep file to file
+my ($less, $main, $log) = @ARGV;
+open(my $lessfh, '<', $less) or die ("NO ARG1 [FILE]\n");
+open(my $mfh, '<', $main) or die ("NO ARG2 [MISS FILE]\n");
+open(my $logfh, '>>', $log) or die ("NO ARG3 [LOG]\n");
+my @less = readline $lessfh; chomp @less;
+my @main = readline $mfh; chomp @main;
+my $count = 0; my $ttl = @less;
+foreach my $item (@less) {
+# STATUS ##################
+	$count++;
+	if ($count % 100 == 0)
+		{ print "$count / $ttl\n"; }
+# GREP ####################
+	if (any { /$item/ } @main)
+		{ next; }
+	else 
+		{ print $logfh "$item\n"; }
+}
