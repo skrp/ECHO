@@ -1,0 +1,1 @@
+ifconfig em0 ether be:af:be:af:be:af
