@@ -4,7 +4,7 @@ use File::Move 'move()';
 use Digest::SHA;
 #
 ######################################
-# KRIPKEY - netwide ec key generation
+# lordkripkey - netwide ec key generation
 #
 # Over-Time : Diversified-Sources : Hand-Crafted
 # Confined Lord no shell daemon
