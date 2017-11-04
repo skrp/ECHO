@@ -38,11 +38,7 @@ MASTERKEY ACCESS
 [ ] 8080
 [ ] MAIL
 [ ] DNS
-[ ] RX (voice-recording exchange)
-[ ] WCHAT
-[ ] radio_io
-[ ] satelite_io
-[ ] GROUP
+[ ] IRC
 [X] Web
 [X] IRC
 [X] RAW
