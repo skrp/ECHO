@@ -5,8 +5,10 @@ use Digest::SHA;
 #
 ######################################
 # KRIPKEY - netwide ec key generation
+#
 # Over-Time : Diversified-Sources : Hand-Crafted
 # Confined Lord no shell daemon
+# Else only root read dir
 # W/R PERM : /krip/.$demon/ /krip/keys/ /dev/random /bin/openssl
 
 die "STILLBORN" if ((my $birth = daemon()) != 0);
