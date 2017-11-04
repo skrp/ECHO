@@ -5,6 +5,9 @@ use Digest::SHA ();
 #
 ######################################
 # KRIPKEY - netwide ec key generation
+# Over-Time : Diversified-Sources : Hand-Crafted
+# Confined Lord no shell daemon
+# W/R PERM : /krip/.$demon/ /krip/keys/ /dev/random /bin/openssl
 
 my $log = '/usr/home/geni/o/ENTROPY_GEN.log';
 open(my $Lfh, '>>', $log);
