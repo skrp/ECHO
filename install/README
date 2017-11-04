@@ -1,27 +1,23 @@
 ###################################
-# HUBBUB - FreeBSD encrypted subnet
-# HUBBUB - Network Kernel Clones
-
-A DHCP attachable
-LAN WIFI subnet
-Point-to-Point Encrypted Tunnels
-
 # INSTALL PROCEEDURE ##############
 
 # {1.0} Boot install FreeBSD memstick
+# --- REBOOT ---
 # {1.1} zfs import usb
 # {1.2} cp /usb/distfiles/KERN /usr/ports/sys/amd64/conf/
 # {1.3} cd /usr/src/
 # {1.4} make buildkernel KERNCONF=KERN
 # {1.5} make installkernel KERNCONF=KERN
 # --- REBOOT ---
+# {1.6} /bin/sh /usb/put_perl
+# {1.7} perl PORTINSTALL
 # {2} perl USR
 # {3} perl CONF
 # {4} opiepasswd -fc
-# {5} opiekey -n 8 499 $set
+# {5} opiekey -fn 8 498 $set
 # {6} su lord
 # {7} opiepasswd -fc
-# {8} opiekey -n 8 499 $set
+# {8} opiekey -fn 8 498 $set
 # --- REBOOT ---
 
 # BENEFITS ####################
