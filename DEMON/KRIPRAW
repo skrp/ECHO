@@ -1,6 +1,70 @@
+#!/usr/local/bin/perl
+use strict; use warnings;
+use File::Move 'move()';
+use Digest::SHA;
+#
 ######################################
 # KRIPRAW - netwide entropy generation
 #
 # Over-Time : Diversified-Sources : Hand-Crafted
 # Confined Lord no shell daemon
+# Else only root read dir
 # W/R PERM : /krip/.$demon/ /krip/keys/ /dev/random /bin/openssl
+
+die "STILLBORN" if ((my $birth = daemon()) != 0);
+
+my $entropy;
+
+my $tpath ="/krip/.$$_ent";
+my $dump = '/krip/ent/`;
+
+my $log = '/krip/.$$_log';
+open(my $Lfh, '>>', $log);
+
+while (1)
+{
+	rotate();
+# FORCE RESEED
+  open(my $rfh, '>>', '/dev/random');
+	close $rfh;
+	my $i = 10;
+	while ($i > 0)
+		{ $i--; rotate(); }
+}
+# SUBS ############################################
+sub rotate
+{
+	sleep 1000;
+  open(my $rfh, '<', '/dev/random');
+  read $rfh,$entropy,10000;
+  my $sha = file_digest($entropy);
+  my $new = $dump.$sha;
+  open(my $sfh, '>', $new);
+  print $sfh $entropy;
+  close $sfh;
+}
+sub file_digest {
+	my ($filename) = @_;
+	my $digester = Digest::SHA->new('sha256');
+	$digester->addfile($filename, 'b');
+	return $digester->hexdigest;
+}
+sub daemon {
+  	die "FAIL daemon1 $!\n" if ((my $pid = fork()) < 0);
+   	if ($pid != 0)
+   		{ exit(0); }
+   	POSIX::setsid() or die "FAIL setsid $!";
+   	die "FAIL daemon2 $!\n" if ((my $pid2 = fork()) < 0);
+  	if ($pid2 != 0)
+   		{ exit(0); }
+	chdir('/krip/');
+   	umask 0;
+   	my $fds = 3;
+  	while ($fds < 1024)
+   	 	{ POSIX::close($fds); $fds++;  }
+   	my $des = '/dev/null';
+   	open(STDIN, "<$des");
+   	open(STDOUT, ">$des");
+   	open(STDERR, ">$des");
+   	return 0;
+}
