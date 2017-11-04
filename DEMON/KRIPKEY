@@ -16,8 +16,7 @@ open(my $cfh, '<', '/krip/curves');
 my @curves = <$cfh>; 
 chomp @curves; close $cfh;
 
-my $rand_tmp = ;
-my $tpath ="/krip/.$rand_tmp";
+my $tpath ="/krip/.$$_tmp";
 my $path = '/krip/krip/';
 
 while (1)
