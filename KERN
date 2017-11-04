@@ -9,7 +9,12 @@ makeoptions	WITH_CTF=1		# Run ctfconvert(1) for DTrace support
 
 # RISKLY REMOVES
 # options 	VIMAGE			# Subsystem virtualization, e.g. VNET
-
+# device		virtio			# Generic VirtIO bus (required)
+# device		virtio_pci		# VirtIO PCI device
+# device		vtnet			# VirtIO Ethernet device
+# device		virtio_blk		# VirtIO Block device
+# device		virtio_scsi		# VirtIO SCSI device
+# device		virtio_balloon		# VirtIO Memory Balloon device
 
 options 	SCHED_ULE		# ULE scheduler
 options 	PREEMPTION		# Enable kernel thread preemption
@@ -90,14 +95,10 @@ device		pci
 options 	PCI_HP			# PCI-Express native HotPlug
 options		PCI_IOV			# PCI SR-IOV support
 
-# Floppy drives
-device		fdc
 
 # ATA controllers
 device		ahci			# AHCI-compatible SATA controllers
 device		ata			# Legacy ATA/SATA controllers
-device		mvs			# Marvell 88SX50XX/88SX60XX/88SX70XX/SoC SATA
-device		siis			# SiliconImage SiI3124/SiI3132/SiI3531 SATA
 
 # SCSI Controllers
 device		ahc			# AHA2940 and onboard AIC7xxx devices
@@ -328,23 +329,8 @@ device		mmcsd			# MMC/SD memory card
 device		sdhci			# Generic PCI SD Host Controller
 
 # VirtIO support
-device		virtio			# Generic VirtIO bus (required)
-device		virtio_pci		# VirtIO PCI device
-device		vtnet			# VirtIO Ethernet device
-device		virtio_blk		# VirtIO Block device
-device		virtio_scsi		# VirtIO SCSI device
-device		virtio_balloon		# VirtIO Memory Balloon device
 
-# HyperV drivers and enhancement support
-device		hyperv			# HyperV drivers 
 
-# Xen HVM Guest Optimizations
-# NOTE: XENHVM depends on xenpci.  They must be added or removed together.
-options 	XENHVM			# Xen HVM kernel infrastructure
-device		xenpci			# Xen HVM Hypervisor services driver
-
-# VMware support
-device		vmx			# VMware VMXNET3 Ethernet
 
 # Netmap provides direct access to TX/RX rings on supported NICs
 device		netmap			# netmap(4) support
