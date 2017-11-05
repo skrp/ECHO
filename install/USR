@@ -22,7 +22,6 @@ seer('seer');
 heir('heir');
 lord('lord');
 
-heir('s_gardik', 'eng'); 
 
 sub pop_grp
 {
