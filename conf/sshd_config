@@ -1,8 +1,10 @@
-Protocol 2
-PermitRootLogin no
-#AllowGroups sshr
-StrictModes yes
-MaxAuthTries 4
-PasswordAuthentication no
-ChallengeResponseAuthentication yes
-UsePam yes
+  Protocol 2
+  PermitRootLogin no
+  AllowGroups ssh
+  MaxAuthTries 4
+  PasswordAuthentication no
+  RSAAuthentication yes
+  PubkeyAuthetication yes
+  AuthorizedKeysFile .ssh/authorized_keys
+  ChallengeResponseAuthentication yes
+  UsePAM no
