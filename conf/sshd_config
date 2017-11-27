@@ -1,10 +1,13 @@
-  Protocol 2
   PermitRootLogin no
-  AllowGroups ssh
-  MaxAuthTries 4
   PasswordAuthentication no
+  UsePAM no
+  
+  AllowGroups ssh
+  
+  Protocol 2
+  MaxAuthTries 4
+
   RSAAuthentication yes
   PubkeyAuthetication yes
   AuthorizedKeysFile .ssh/authorized_keys
   ChallengeResponseAuthentication yes
-  UsePAM no
