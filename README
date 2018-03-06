@@ -1,19 +1,20 @@
-####################################
-# ECHO         Ghosts in the Machine
+#######################################################
+# ECHO         FreeBSD 10.3 Refined unix kernel & World
 
+Unix clones built to form a homogeneous OTOPSKOPIE network.
 
-Unix clones from crafted kernel:userland:protocol:security.
-These clones service locally and as a network.
+OTO  - One Time Only
+PSK  - Pre Shared Keys
+OPIE - One Password In Everything
 
-KERN
-CONF
-PSKOPIE
-USRRING
-Disposable Sockets
-DEMONS
-    HIVE
-    KRIP & ANT
-    KoL(Knights of Log)
-    Lords & Heirs
-    root
+This kernel is aimed for an explicit-only compilation of modules. 
 
+1) The kernel is first filtered via the kernel build via /etc/src.conf.
+2) KERN is the kernel configuration file that further sculpts & hardens the kernel
+3) /etc/sysctl.conf is the optional element
+4) Jail buildworld is stripped via a special src.conf & SCRAPE.pl
+
+LAYERS:
+HOST_KERNEL OPIE | NFS JAIL | USERLAND OPIE JAIL | ANONYMOUS OTOPSK JAIL
+
+Escalation is refined su groups
