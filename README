@@ -15,6 +15,6 @@ This kernel is aimed for an explicit-only compilation of modules.
 4) Jail buildworld is stripped via a special src.conf & SCRAPE.pl
 
 LAYERS:
-HOST_KERNEL OPIE | NFS JAIL | USERLAND OPIE JAIL | ANONYMOUS OTOPSK JAIL
+KERNEL OPIE | NFS OTOPSK JAIL | USERLAND OPIE JAIL | ANONYMOUS OTOPSK JAIL
 
 Escalation is refined thru su groups
