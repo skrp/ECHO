@@ -17,4 +17,4 @@ This kernel is aimed for an explicit-only compilation of modules.
 LAYERS:
 HOST_KERNEL OPIE | NFS JAIL | USERLAND OPIE JAIL | ANONYMOUS OTOPSK JAIL
 
-Escalation is refined su groups
+Escalation is refined thru su groups
